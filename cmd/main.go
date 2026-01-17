@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/Bjornsrud/ByteBench87/bench"
 	"github.com/Bjornsrud/ByteBench87/tests"
 	"github.com/Bjornsrud/ByteBench87/ui"
@@ -16,8 +14,7 @@ func main() {
 func runBenchmarks() {
 	cfg := bench.Config{WarmupRuns: 5, Runs: 11}
 
-	fmt.Println("Starting benchmarks...")
-	fmt.Printf("Config:   warmup=%d runs=%d\n\n", cfg.WarmupRuns, cfg.Runs)
+	ui.PrintRunHeader(cfg)
 
 	testCases := []bench.TestCase{
 		tests.DummyIntLoop(),
@@ -25,20 +22,11 @@ func runBenchmarks() {
 	}
 
 	for _, tc := range testCases {
-		fmt.Printf("Running %s...\n", tc.Name)
-
+		ui.PrintTestHeader(tc.Name)
 		result := bench.RunTest(tc, cfg)
-
-		fmt.Println("Results:")
-		printResult(result)
-		fmt.Println()
+		ui.PrintTestResult(result)
 	}
 }
 
 
-func printResult(r bench.Result) {
-	fmt.Printf("Test:     %s\n", r.Name)
-	fmt.Printf("Median:   %v\n", r.Median)
-	fmt.Printf("Checksum: 0x%016x\n", r.Checksum)
-}
 
