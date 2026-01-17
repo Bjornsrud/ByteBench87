@@ -6,7 +6,7 @@ import (
 	"github.com/Bjornsrud/ByteBench87/bench"
 )
 
-const seperator = "----------------------------"
+const separator = "----------------------------"
 
 func PrintRunHeader(cfg bench.Config) {
 	fmt.Println("Starting benchmarks...")
@@ -18,9 +18,8 @@ func PrintTestHeader(name string) {
 }
 
 func PrintTestResult(r bench.Result) {
-	fmt.Printf(seperator + "\n")
-	fmt.Printf("Test:     %s\n", r.Name)
+	fmt.Printf(separator + "\n")
 	fmt.Printf("Median:   %v\n", r.Median)
 	fmt.Printf("Checksum: 0x%016x\n", r.Checksum)
-	fmt.Printf(seperator + "\n")
+	fmt.Printf(separator + "\n")
 }

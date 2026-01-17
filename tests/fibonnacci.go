@@ -2,7 +2,7 @@ package tests
 
 import "github.com/Bjornsrud/ByteBench87/bench"
 
-// Fibonacci returns a benchmark test inspired by BYTE Magazine (1987).
+// Fibonacci is a benchmark test based on C code published by BYTE Magazine (July 1987).
 // It uses a naive recursive implementation to stress function calls
 // and integer arithmetic.
 func Fibonacci() bench.TestCase {
@@ -14,7 +14,7 @@ func Fibonacci() bench.TestCase {
 
 			var acc uint64
 			for i := 0; i < reps; i++ {
-				acc ^= fib(n) // or change to fib(n + (i & 1)) to add tiny variation to avoid overly predictable paths
+				acc = (acc << 1) ^ fib(n)
 			}
 			return acc
 		},

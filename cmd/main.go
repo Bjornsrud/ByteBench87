@@ -17,8 +17,9 @@ func runBenchmarks() {
 	ui.PrintRunHeader(cfg)
 
 	testCases := []bench.TestCase{
-		tests.DummyIntLoop(),
+		// tests.DummyIntLoop(),
 		tests.Fibonacci(),
+		tests.Float(),
 	}
 
 	for _, tc := range testCases {
