@@ -14,12 +14,27 @@ func main() {
 }
 
 func runBenchmarks() {
-	cfg := bench.Config{WarmupRuns: 3, Runs: 5}
+	cfg := bench.Config{WarmupRuns: 5, Runs: 11}
 
-	fmt.Printf("Config:   warmup=%d runs=%d\n", cfg.WarmupRuns, cfg.Runs)
-	result := bench.RunTest(tests.DummyIntLoop(), cfg)
-	printResult(result)
+	fmt.Println("Starting benchmarks...")
+	fmt.Printf("Config:   warmup=%d runs=%d\n\n", cfg.WarmupRuns, cfg.Runs)
+
+	testCases := []bench.TestCase{
+		tests.DummyIntLoop(),
+		tests.Fibonacci(),
+	}
+
+	for _, tc := range testCases {
+		fmt.Printf("Running %s...\n", tc.Name)
+
+		result := bench.RunTest(tc, cfg)
+
+		fmt.Println("Results:")
+		printResult(result)
+		fmt.Println()
+	}
 }
+
 
 func printResult(r bench.Result) {
 	fmt.Printf("Test:     %s\n", r.Name)

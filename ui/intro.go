@@ -9,11 +9,11 @@ import (
 const introPage1 = `
 ===========================================
   ByteBench87
-  CPU Benchmarks • BYTE Magazine (1987)
+  CPU Benchmarks BYTE Magazine (July 1987)
 ===========================================
 
 ByteBench87 is a hobby project inspired by the CPU benchmarks published in
-BYTE Magazine in 1987, most notably the article "High-Tech Horsepower".
+BYTE Magazine in July 1987, most notably the article "High-Tech Horsepower".
 
 The original benchmarks compared the computational performance of CPUs
 such as the Intel 80386 and the Motorola 68020 using small, focused tests.
